@@ -23,9 +23,7 @@ source("providers.R")
 # Define UI for application that draws a histogram
 ui <- fluidPage(
   
-  title=HTML(paste(windowTitle = "YOLO TEST"),
-  
-  headerPanel(
+  titlePanel("My first web app"),
 
   shiny.i18n::usei18n(i18n),
   # tags$div(
