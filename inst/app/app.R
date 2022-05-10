@@ -22,8 +22,9 @@ i18n$set_translation_language('English')
 source("providers.R")
 # Define UI for application that draws a histogram
 ui <- fluidPage(
+  tags$script(HTML('document.title="Yolo County Health App";')),
 
-  shiny.i18n::usei18n(i18n),
+  #shiny.i18n::usei18n(i18n),
   # tags$div(
   #   style='.rightAlign{float:right;}',
   #   selectInput(
@@ -34,10 +35,10 @@ ui <- fluidPage(
   #   )
   # ),
   #
-  radioButtons(inputId='selected_language',
-               label='Language/Idioma/Язык',
-               choices = i18n$get_languages(),
-               selected = i18n$get_key_translation()),
+  #radioButtons(inputId='selected_language',
+  #             label='Language/Idioma/Язык',
+  #             choices = i18n$get_languages(),
+  #             selected = i18n$get_key_translation()),
 
   # tags$a(href = "https://heallab.ucdavis.edu/people/jennifer-phipps", target = "_parent", "Contact us"),
 
@@ -202,11 +203,11 @@ ui <- fluidPage(
                             #   leafletOutput(outputId = "overview_maps")
                             # ),
 
-                            fluidRow(
-                              column(4,
-                                     tags$iframe(src="care_provider_pop_ca.html")
-                              )
-                            ),
+                            #fluidRow(
+                              #column(4,
+                              #       tags$iframe(src="care_provider_pop_ca.html")
+                              #)
+                            #),
 
                             fluidRow(
 
@@ -214,7 +215,7 @@ ui <- fluidPage(
                                      leafletOutput(outputId = "below_poverty")),
 
                               column(6,
-                                     leafletOutput(outputId = "above_200k")),
+                                     leafletOutput(outputId = "above_200k"))
 
                             ),
 
@@ -227,33 +228,33 @@ ui <- fluidPage(
                                      leafletOutput(outputId = "gini_index")),
 
                               column(6,
-                                     leafletOutput(outputId = "health_insur_yolo")),
+                                     leafletOutput(outputId = "health_insur_yolo"))
 
                             ),
 
                             br(),
                             br(),
 
-                            fluidRow(
-                              column(6,
-                                HTML(paste0("<iframe src='care_provider_pop_yolo.html'> </iframe>"))
-                              ),
-                              column(6,
-                                     HTML(paste0("<iframe src='care_provider_yolo.html'> </iframe>"))
-                              )
-                            ),
+                            #fluidRow(
+                            #  column(6,
+                            #    HTML(paste0("<iframe src='care_provider_pop_yolo.html'> </iframe>"))
+                            #  ),
+                            #  column(6,
+                            #         HTML(paste0("<iframe src='care_provider_yolo.html'> </iframe>"))
+                            #  )
+                            #),
 
-                            br(),
-                            br(),
+                            #br(),
+                            #br(),
 
-                            fluidRow(
-                              column(6,
-                                     HTML(paste0("<iframe src='hospital_pop_yolo.html'> </iframe>"))
-                              ),
-                              column(6,
-                                     HTML(paste0("<iframe src='hospital_yolo.html'> </iframe>"))
-                              )
-                            )
+                            #fluidRow(
+                            #  column(6,
+                            #         HTML(paste0("<iframe src='hospital_pop_yolo.html'> </iframe>"))
+                            #  ),
+                            #  column(6,
+                            #         HTML(paste0("<iframe src='hospital_yolo.html'> </iframe>"))
+                            #  )
+                            #)
 
                     ),
                     tabItem(tabName = "providers",
@@ -412,14 +413,14 @@ ui <- fluidPage(
                             br(),
                             br(),
 
-                            fluidRow(
-                              column(6,
-                                     HTML(paste0("<iframe src='vendor_pop_yolo.html'> </iframe>"))
-                              ),
-                              column(6,
-                                     HTML(paste0("<iframe src='vendor_yolo.html'> </iframe>"))
-                              )
-                            ),
+                            #fluidRow(
+                            #  column(6,
+                            #         HTML(paste0("<iframe src='vendor_pop_yolo.html'> </iframe>"))
+                            #  ),
+                            #  column(6,
+                            #         HTML(paste0("<iframe src='vendor_yolo.html'> </iframe>"))
+                            #  )
+                            #),
                             #
                             # fluidRow(
                             #     HTML(paste0("<iframe src='vendor_pop_yolo.html'> </iframe>"),width=6),
@@ -504,8 +505,11 @@ ui <- fluidPage(
                     ),
 
                     tabItem(tabName = "other_resources")
+                  )
+                )
+  )
+)
 
-# Define server logic required to draw a histogram
 server <- function(input, output, session) {
   observeEvent(input$selected_language, {
     update_lang(session, input$selected_language)
