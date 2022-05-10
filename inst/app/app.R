@@ -19,10 +19,6 @@ library(tidyverse)
 i18n <- Translator$new(translation_json_path=paste0(system.file("app/data/translate.js", package="YoloHealthApp")))
 i18n$set_translation_language('English')
 
-ui <- fluidPage(
-  title = "Yolo"
-  )
-
 source("providers.R")
 # Define UI for application that draws a histogram
 ui <- fluidPage(
@@ -47,7 +43,7 @@ ui <- fluidPage(
 
   dashboardPage(skin = "blue",
 
-                dashboardHeader(title = i18n$t("Yolo County Resources")),
+                dashboardHeader(title = "Yolo County Resources"),
 
                 dashboardSidebar(
                   sidebarMenu(
