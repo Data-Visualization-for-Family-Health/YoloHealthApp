@@ -84,7 +84,7 @@ comm_orgs <- comm_orgs %>%
 
 ## Maps for Home Page
 
-durham_tracts <- tracts(state = 'NC', county = "durham", cb=TRUE)
+#durham_tracts <- tracts(state = 'NC', county = "durham", cb=TRUE)
 
 # Over 200K
 
