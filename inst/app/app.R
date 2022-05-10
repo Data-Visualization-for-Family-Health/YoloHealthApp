@@ -22,6 +22,10 @@ i18n$set_translation_language('English')
 source("providers.R")
 # Define UI for application that draws a histogram
 ui <- fluidPage(
+  
+  title=HTML(paste(windowTitle = "YOLO TEST"),
+  
+  headerPanel(
 
   shiny.i18n::usei18n(i18n),
   # tags$div(
@@ -43,7 +47,7 @@ ui <- fluidPage(
 
   dashboardPage(skin = "blue",
 
-                dashboardHeader(title = "Yolo County Resources"),
+                dashboardHeader(title = i18n$t("Yolo County Resources")),
 
                 dashboardSidebar(
                   sidebarMenu(
