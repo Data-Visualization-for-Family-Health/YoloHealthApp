@@ -22,7 +22,7 @@ i18n$set_translation_language('English')
 source("providers.R")
 # Define UI for application that draws a histogram
 ui <- fluidPage(
-  tags$script(HTML('document.title="Yolo County Health App";')),
+  tags$script(HTML('document.title="Yolo County Health Resources";')),
 
   #shiny.i18n::usei18n(i18n),
   # tags$div(
